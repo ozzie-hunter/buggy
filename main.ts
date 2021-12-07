@@ -3,6 +3,7 @@ let Turn = 0
 let Drive = 0
 let Enable_Drive = false
 if (!(Enable_Drive)) {
+    basic.showIcon(IconNames.Happy)
     Enable_Drive = true
     basic.showIcon(IconNames.SmallSquare)
 }
@@ -29,9 +30,9 @@ basic.forever(function () {
             Mapped_Drive = pins.map(
             Drive,
             0,
-            100,
+            90,
             0,
-            -90
+            100
             )
             basic.showLeds(`
                 . . # . .
@@ -40,7 +41,7 @@ basic.forever(function () {
                 . # # # .
                 . . # . .
                 `)
-        } else if (Drive < 20 && Drive > -20 && (Turn < 20 && Turn > -20)) {
+        } else {
             basic.showLeds(`
                 . . . . .
                 . # # # .
@@ -52,31 +53,16 @@ basic.forever(function () {
         if (Turn < -20) {
             Mapped_Drive = pins.map(
             Turn,
-            0,
-            -1023,
-            0,
-            1023
+            -90,
+            90,
+            -100,
+            100
             )
             basic.showLeds(`
                 . . # . .
                 . # # . .
                 # # # # #
                 . # # . .
-                . . # . .
-                `)
-        } else if (Turn > 20) {
-            Mapped_Drive = pins.map(
-            Turn,
-            0,
-            1023,
-            0,
-            1023
-            )
-            basic.showLeds(`
-                . . # . .
-                . . # # .
-                # # # # #
-                . . # # .
                 . . # . .
                 `)
         }
