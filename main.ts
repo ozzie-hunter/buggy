@@ -41,7 +41,6 @@ basic.forever(function () {
                 . . # . .
                 `)
         } else if (Drive < 20 && Drive > -20 && (Turn < 20 && Turn > -20)) {
-            radio.sendValue("Stop", Math.min(0, 0))
             basic.showLeds(`
                 . . . . .
                 . # # # .
